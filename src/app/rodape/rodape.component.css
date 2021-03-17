@@ -1,0 +1,24 @@
+ul.social-contacts {
+    list-style: none;
+    padding: 0;
+}
+
+ul.social-contacts li {
+    display: inline;
+    margin: 0;
+    padding: 5px;
+}
+
+.iconsSocial {
+    font-size: 25pt;
+    color: black;
+    padding: 5px;;
+}
+
+.iconsSocial:hover {
+    color:brown;
+}
+
+.footer-copyright i {
+    padding: 10px;
+}
