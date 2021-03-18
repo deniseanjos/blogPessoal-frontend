@@ -1,0 +1,23 @@
+.ajust-size {
+
+    min-height: 650px;
+    padding: 3%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+
+}
+
+.btPersonalizado {
+    color: blueviolet;
+
+    background-color: black;
+
+    width: 100%;
+}
+
+.btPersonalizado:hover {
+    color: red;
+    background-color: royalblue;
+}
