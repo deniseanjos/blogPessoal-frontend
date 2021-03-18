@@ -2,6 +2,12 @@
 a {
     cursor: pointer;
 }
+
 .menu-bg-color {
     background-color: #D938C1;
+}
+
+.espac-menu {
+    margin-right: 5%;
+    margin-left: 5%;
 }
