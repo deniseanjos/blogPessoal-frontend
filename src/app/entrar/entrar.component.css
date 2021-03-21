@@ -1,23 +1,22 @@
-.ajust-size {
+.tamanho-row {
+    position: fixed;
+    height: 750px;
+    display: block;
+}
 
-    min-height: 650px;
-    padding: 3%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: transparent;
-
+.logo-blog {
+    size: 300px;
 }
 
 .btPersonalizado {
-    color: blueviolet;
-
-    background-color: black;
+    color: black;
+ 
+    background-color: #BF8C69;
 
     width: 100%;
 }
 
 .btPersonalizado:hover {
-    color: red;
-    background-color: royalblue;
+    color: #F2F1F0;
+    background-color: #D85526;
 }
