@@ -1,0 +1,39 @@
+.page-footer {
+    padding: 1%;
+    margin: 0;
+}
+ul.social-contacts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.social-contacts li {
+    display: inline-flex;
+    margin: 0;
+    padding: 1%;
+    
+}
+
+.iconsSocial {
+    font-size: 25pt;
+    color: black;
+}
+
+.iconsSocial:hover {
+    color:brown;
+}
+
+.footer-copyright  {
+    padding: 0;
+}
+
+.footer-copyright i {
+    padding: 1%;
+}
+
+.page-footer hr {
+    padding: 0;
+    margin: 0;
+}
+
