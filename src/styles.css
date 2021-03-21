@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --color1: #F2F1F0;
+    --color2: #F3E6B5;
+    --color3: #BF8C69;
+    --color4:#D85526;
+}
+
+h1 {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h4 {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h5 {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+p {
+    font: sans-serif, Arial;
+}

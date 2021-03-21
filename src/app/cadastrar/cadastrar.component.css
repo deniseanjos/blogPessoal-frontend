@@ -1,0 +1,19 @@
+.btPersonalizado {
+    color: black;
+    background-color: #BF8C69;
+}
+
+.btPersonalizado:hover {
+    color: #F2F1F0;
+    background-color: #D85526;
+}
+
+.cadastro-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    color:#D85526;
+}
