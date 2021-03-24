@@ -10,42 +10,42 @@
 
         <div class="col-md-6 p-5">
 
-            <h3 class="text-center">Faça parte</h3>
+            <h3 class="text-center">Cadastre-se aqui</h3>
 
             <div class="form-group">
-                <label for="nome">Nome Completo</label>
-                <input class="form-control" type="text" name="nome" id="nome"
-                    placeholder="Nome Completo">
+                <label for="nome">Nome e Sobrenome</label>
+                <input [(ngModel)] = 'user.nome' class="form-control" type="text" name="nome" id="nome"
+                    placeholder="Nome e Sobrenome">
             </div>
 
             <div class="form-group">
                 <label for="usuario">Email</label>
-                <input class="form-control" type="email" name="usuario" id="usuario"
+                <input [(ngModel)] = 'user.usuario' class="form-control" type="email" name="usuario" id="usuario"
                     placeholder="email@email.com">
             </div>
 
             <div class="form-group">
                 <label for="foto">Link da Foto</label>
-                <input class="form-control" type="text" name="foto" id="foto"
+                <input  [(ngModel)] = 'user.foto' class="form-control" type="text" name="foto" id="foto"
                     placeholder="https://i.imgur.com/exemploLinkFoto.png">
             </div>
 
             <div class="form-group">
                 <label for="senha">Senha</label>
-                <input class="form-control" type="password" name="senha" id="senha"
+                <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha"
                     placeholder="Digite sua senha">
             </div>
 
             <div class="form-group">
                 <label for="confirmSenha">Confirmar Senha</label>
-                <input class="form-control" type="password" name="senha" id="senha"
+                <input [(ngModel)] = 'user.senha' class="form-control" type="password" name="senha" id="senhaConfirmar"
                     placeholder="Digite sua senha">
             </div>
 
             <div class="form-group">
                 <label for="tipo">Tipo de Usuário</label>
-                <select class="form-control" name="tipo" id="tipo">
-                    <option disabled selected>Selecione um tipo de usuário</option>
+                <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+                    <option disabled selected>Selecione o tipo de usuário</option>
                     <option value="Normal">Normal</option>
                     <option value="Adm">Administrador</option>
                 </select>
@@ -57,7 +57,7 @@
                     Cancelar
                 </button>
 
-                <button class="btn btn-success" type="submit">
+                <button class="btn btn-success" type="submit" (click)='cadastrar()'>
                     Cadastrar
                 </button>
 
