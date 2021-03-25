@@ -1,5 +1,6 @@
-<nav class="espac-menu navbar navbar-expand-lg navbar-light menu-bg-color">
-    <a class="navbar-brand" href="https://i.imgur.com/KNBHjCl.png"><img src="https://i.imgur.com/KNBHjCl.png" alt=""></a>
+<nav class="espac-menu navbar navbar-expand-lg navbar-light menu-bg-color mt-3 mb-3">
+    <a class="navbar-brand ml-5" href="https://i.imgur.com/KNBHjCl.png"><img src="https://i.imgur.com/KNBHjCl.png"
+            alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -7,24 +8,26 @@
 
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
 
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto mr-5">
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                        <img src="https://i.imgur.com/sLahl4b.jpg" alt="Foto de Perfil" width="50px" height="50px"
-                            class="img-fluid rounded-circle">
+                    <img src="{{foto}}" alt="Foto de Perfil" width="50px" height="50px"
+                        class="img-fluid rounded-circle">
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <p class="dropdown-item" href=""><i class="far fa-user"></i> Nome Usuário</p>
+                    <p class="dropdown-item" href=""><i class="far fa-user"></i> {{nome}}</p>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"href="#"><i class="far fa-newspaper"></i> Publicações</a>
+                    <a class="dropdown-item" href="#"><i class="far fa-newspaper"></i> Publicações</a>
                     <a class="dropdown-item" href="#"><i class="fas fa-tags"></i> Temas</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="far fa-edit"></i> Editar Perfil</a>
-                    <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    <a (click)='sair()' class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Sair</a>
+
                 </div>
+           
             </li>
 
         </ul>
