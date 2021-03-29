@@ -4,10 +4,7 @@ a {
 }
 
 .menu-bg-color {
-    background-color: #D938C1;
-}
-
-.espac-menu {
-    margin-right: 5%;
-    margin-left: 5%;
+    width: 100%;
+    height: 60px;
+    background-color: #F2F1F0;
 }
