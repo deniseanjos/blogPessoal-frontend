@@ -29,3 +29,7 @@ h5 {
 p {
     font: sans-serif, Arial;
 }
+
+html {
+    scroll-behavior: smooth;
+}
