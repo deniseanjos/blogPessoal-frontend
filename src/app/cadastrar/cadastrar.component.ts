@@ -26,7 +26,7 @@ export class CadastrarComponent implements OnInit {
     window.scroll(0,0)
   }
 
-  confirmSenha(event: any) {
+  confirmeSenha(event: any) {
     this.confirmarSenha = event.target.value
   }
 
