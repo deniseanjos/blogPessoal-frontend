@@ -6,6 +6,10 @@
     --color4:#D85526;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 h1 {
     font-family:Arial, Helvetica, sans-serif;
 }
@@ -28,8 +32,4 @@ h5 {
 
 p {
     font: sans-serif, Arial;
-}
-
-html {
-    scroll-behavior: smooth;
 }
