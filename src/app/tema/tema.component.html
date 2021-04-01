@@ -8,8 +8,8 @@
 
         <div class="col-md-6">
 
-          <h2>Temas</h2>
-          <p>Aqui você poderá consultar todos os temas cadastrados.</p>
+          <h1>Temas</h1>
+          <p><a href="#todosTemas">Clique aqui</a> para consultar todos os temas cadastrados.</p>
 
         </div>
 
@@ -19,47 +19,42 @@
 
         <div class="col-md-6">
 
-          <button type="button" class="btn btn-outline-light mr-2" style="min-width: 48%;">Ver Todos</button>
-          <button type="button" class="btn btn-outline-secondary my-2 my-sm-0" data-toggle="modal"
-            data-target="#novoTema" style="min-width:48%;">Cadastrar Novo</button>
+          <p>Não encontrou o tema que procurava?</p>
+          <h5>Cadastre um novo aqui:</h5>
 
-        </div>
+          <input [(ngModel)]='tema.descricao' class="form-control" type="text"
+            placeholder="Digite a descrição do tema" style="min-width:100%;">
 
-      </div>
+          <div class="row d-flex justify-content-center mt-2">
 
-      <div class="row d-flex justify-content-center mt-2">
+              <button class="btn btn-success mr-3" (click)="cadastrar()">Cadastrar</button>
 
-        <div class="col-md-6">
+              <button class="btn btn-danger">Cancelar</button>
 
-          <form class="form-inline">
-            <input class="form-control mr-2" type="search" placeholder="Pesquisar tema" aria-label="Pesquisar"
-              style="min-width:66%;">
-            <button class="btn btn-outline-success" type="submit" style="min-width:30%;">Pesquisar</button>
-          </form>
-
+          </div>
         </div>
       </div>
 
-      <div class="row d-flex justify-content-center mt-2">
+    <div class="row d-flex justify-content-center mt-2">
 
-        <div class="col-md-6 d-flex justify-content-end">
+      <div class="col-md-6 d-flex justify-content-end">
 
-          <button class="btn" routerLink="/inicio"><i class="fas fa-angle-double-left"></i> Voltar ao Início</button>
-
-        </div>
+        <button class="btn btn-retornar-inicio" routerLink="/inicio"><i class="fas fa-angle-double-left"></i> Voltar ao Início</button>
 
       </div>
-
-    </div>
-
-
-    <div class="col-md-6 d-flex justify-content-center">
-
-      <img src="https://i.imgur.com/yRtOr0Y.png" alt="Ilustração" width="400px">
 
     </div>
 
   </div>
+
+
+  <div class="col-md-6 d-flex justify-content-center">
+
+    <img src="https://i.imgur.com/yRtOr0Y.png" alt="Ilustração" width="500px">
+
+  </div>
+
+</div>
 
 </div>
 
@@ -68,7 +63,7 @@
   <div class="row mt-5">
 
     <div class="col-md-12">
-      <h2 class="text-center">Todos os Temas</h2>
+      <h2 class="text-center" id="todosTemas">Todos os Temas</h2>
     </div>
 
   </div>
@@ -81,28 +76,19 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Primeiro</th>
-            <th scope="col">Último</th>
-            <th scope="col">Nickname</th>
+            <th scope="col">Descrição</th>
+            <th scope="col" class="text-right">Modificações</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
+          <tr *ngFor='let item of listaTemas'>
+            <th>{{item.id}}</th>
+            <td>{{item.descricao}}</td>
+            <td class="d-flex justify-content-end">
+              <button class="btn btn-info mr-3">Editar</button>
+              <button class="btn btn-danger">Deletar</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -110,35 +96,3 @@
     </div>
 
   </div>
-
-</div>
-
-<!-- Modal -->
-
-<div class="modal fade" id="novoTema" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-align-center" id="TituloModalCentralizado">Novo Tema</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <div class="form-group">
-          <label for="titulo">Cadastro de Novo Tema</label>
-          <input [(ngModel)]='tema.descricao' type="text" class="form-control" id="descricao" placeholder="Digite a descrição do tema">
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" (click)="cadastrar()">Cadastrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- /Modal -->
