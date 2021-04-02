@@ -18,8 +18,10 @@
       <div class="row d-flex justify-content-center mt-2">
 
         <div class="col-md-6">
+          
+          <hr width="50%" color="#D85526">
 
-          <p>Não encontrou o tema que procurava?</p>
+          <p class="mt-2">Não encontrou o tema que procurava?</p>
           <h5>Cadastre um novo aqui:</h5>
 
           <input [(ngModel)]='tema.descricao' class="form-control" type="text"
@@ -27,9 +29,7 @@
 
           <div class="row d-flex justify-content-center mt-2">
 
-              <button class="btn btn-success mr-3" (click)="cadastrar()">Cadastrar</button>
-
-              <button class="btn btn-danger">Cancelar</button>
+             <button class="btn btn-success" (click)="cadastrar()">Cadastrar</button>
 
           </div>
         </div>
@@ -86,8 +86,8 @@
             <th>{{item.id}}</th>
             <td>{{item.descricao}}</td>
             <td class="d-flex justify-content-end">
-              <button class="btn btn-info mr-3">Editar</button>
-              <button class="btn btn-danger">Deletar</button>
+              <button class="btn btn-info mr-3" [routerLink]="['/tema-edit',item.id]">Editar</button>
+              <button class="btn btn-danger" [routerLink]="['/tema-delete', item.id]">Deletar</button>
             </td>
           </tr>
         </tbody>
