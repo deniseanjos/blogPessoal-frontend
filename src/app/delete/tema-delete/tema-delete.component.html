@@ -1,1 +1,28 @@
-<p>tema-delete works!</p>
+<div class="container p-5">
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h3 class="text-center">Apagar Tema</h3>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h5 class="text-center text-secondary">Você tem certeza que deseja apagar esse tema? Todas as postagens relacionadas a ele serão igualmente apagadas.</h5>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h5 class="text-center">Tema: {{tema.descricao}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <button class="btn btn-danger mr-3" routerLink='/tema'><i class="far fa-window-close"></i> Cancelar</button>
+            <button class="btn btn-success" (click)="apagar()"><i class="far fa-trash-alt"></i> Deletar</button>
+        </div>
+    </div>
+
+</div>
