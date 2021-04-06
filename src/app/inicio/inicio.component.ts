@@ -31,12 +31,12 @@ export class InicioComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
+    
     window.scroll(0,0)
-
 
     if (environment.token == '') {
       this.router.navigate(['/entrar'])
@@ -44,6 +44,7 @@ export class InicioComponent implements OnInit {
 
     this.getAllTemas()
     this.getAllPostagens()
+    this.findByIdUser()
 
   }
 
@@ -84,6 +85,8 @@ export class InicioComponent implements OnInit {
       alert('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
+      this.getAllTemas()
+      this.findByIdUser()
     })
 
   }
