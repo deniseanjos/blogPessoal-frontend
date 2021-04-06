@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tema } from 'src/app/model/Tema';
+import { AlertsService } from 'src/app/service/alerts.service';
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -18,6 +19,7 @@ export class TemaDeleteComponent implements OnInit {
     private temaService: TemaService,
     private router: Router,
     private route: ActivatedRoute,
+    private alerts: AlertsService
   ) { }
 
   ngOnInit(){
@@ -39,7 +41,7 @@ export class TemaDeleteComponent implements OnInit {
 
   apagar() {
     this.temaService.deleteTema(this.idTema).subscribe(() => {
-      alert("Tema deletado com sucesso.")
+      this.alerts.showAlertSuccess("Tema deletado com sucesso.")
       this.router.navigate(['/tema'])
     })
   }

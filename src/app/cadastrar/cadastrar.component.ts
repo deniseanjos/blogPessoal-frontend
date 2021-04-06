@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/User';
+import { AlertsService } from '../service/alerts.service';
 import { AuthService } from '../service/auth.service';
 
 
@@ -19,7 +20,8 @@ export class CadastrarComponent implements OnInit {
   //Injeção de dependencia
   constructor( 
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alerts: AlertsService
   ) { }
 
   ngOnInit() {
@@ -38,12 +40,12 @@ export class CadastrarComponent implements OnInit {
     this.user.tipo = this.tipoUsuario
 
     if(this.user.senha != this.confirmarSenha) {
-      alert("A confirmação de senha não confere. Favor digite novamente.")
+      this.alerts.showAlertDanger("A confirmação de senha não confere. Favor digite novamente.")
     } else {
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
         this.user = resp
         this.router.navigate(['/entrar'])
-        alert('Usuário cadastrado com sucesso! Bem vinde!')
+        this.alerts.showAlertSuccess('Usuário cadastrado com sucesso! Bem vinde!')
       })
     }
 
