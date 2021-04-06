@@ -50,12 +50,14 @@
         href="#nav-todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as
         Postagens</a>
 
-      <a (click)='findByIdUser()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab"
-        href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+      <a (click)='findByIdUser()' class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab"
+        data-toggle="tab" href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens"
+        aria-selected="false">Minhas Postagens</a>
 
       <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagensTema-tab" data-toggle="tab"
         href="#nav-postagensTema" role="tab" aria-controls="nav-postagensTema" aria-selected="false">Postagens por
         Tema</a>
+
     </div>
 
   </nav>
@@ -64,7 +66,16 @@
 
     <div class="tab-pane fade show active" id="nav-todasPostagens" role="tabpanel"
       aria-labelledby="nav-todasPostagens-tab">
-      
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="titulo" placeholder="Pesquise por título"
+              [(ngModel)]="tituloPost" (keyup)='findByTituloPostagem()'>
+          </div>
+        </div>
+      </div>
+
       <div class="card-columns">
         <div class="card" *ngFor='let item of listaPostagem | orderBy : key : reverse'>
           <div class="card-body">
@@ -72,8 +83,8 @@
             <p class="card-text font-weight-light text-monospace">{{item.tema.descricao}}</p>
             <p class="card-text">{{item.texto}}</p>
             <p class="card-text"><small class="text-muted">
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}} by {{item.usuario.nome}}
-            </small></p>
+                {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}} by {{item.usuario.nome}}
+              </small></p>
           </div>
         </div>
       </div>
@@ -81,7 +92,7 @@
     </div>
 
     <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-      
+
       <div class="card-columns">
         <div class="card" *ngFor='let item of user.postagem | orderBy : key : reverse'>
           <div class="card-body">
@@ -89,8 +100,8 @@
             <p class="card-text font-weight-light text-monospace">{{item.tema.descricao}}</p>
             <p class="card-text">{{item.texto}}</p>
             <p class="card-text"><small class="text-muted">
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-            </small></p>
+                {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+              </small></p>
 
             <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
             <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
@@ -101,22 +112,33 @@
     </div>
 
     <div class="tab-pane fade" id="nav-postagensTema" role="tabpanel" aria-labelledby="nav-postagensTema-tab">
-      
-      <div class="card-columns" *ngFor='let tema of listaTemas | orderBy : key : reverse'>
-        <div class="card" *ngFor='let item of tema.postagem'>
-          <div class="card-body">
-            <h5 class="card-title">{{item.titulo}}</h5>
-            <p class="card-text">{{item.texto}}</p>
-            <p class="card-text"><small class="text-muted">
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}} by {{item.usuario.nome}}
-            </small></p>
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="titulo" placeholder="Pesquise por tema" [(ngModel)]="nomeTema"
+              (keyup)='findByNomeTema()'>
           </div>
         </div>
       </div>
 
-    </div>
+      <div class="card-columns" *ngFor='let tema of listaTemas'>
 
+        <div class="card" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
+
+          <div class="card-body">
+            <h5 class="card-title">{{item.titulo}}</h5>
+            <p class="card-text font-weight-light text-monospace">{{tema.descricao}}</p>
+            <p class="card-text">{{item.texto}}</p>
+            <p class="card-text"><small class="text-muted">
+                {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}} by {{item.usuario.nome}}
+              </small></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 
 </div>
 
