@@ -10,11 +10,10 @@
         <ul class="navbar-nav ml-auto mr-5">
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <img src="{{foto}}" alt="Foto de Perfil" width="50px" height="50px"
-                        class="img-fluid rounded-circle">
-                </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img *ngIf='authService.fotoIsPresent()' src="{{foto}}" alt="Foto de Perfil" width="50px" height="50px" class="img-fluid rounded-circle">
+                        <img *ngIf="authService.fotoIsNotPresent()" src="https://i.imgur.com/BBrRzg6.png" alt="Foto de Perfil" width="40px" height="40px" class="img-fluid rounded-circle">
+                    </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <p class="dropdown-item" href=""><i class="far fa-user"></i> {{nome}}</p>

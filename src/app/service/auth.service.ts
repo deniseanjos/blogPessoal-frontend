@@ -46,4 +46,37 @@ export class AuthService {
     return ok
   }
 
+  fotoIsPresent() {
+    let ok = false
+
+    if (environment.foto != '') {
+      ok = true
+    }
+    
+    return ok
+
+  }
+
+  fotoIsNotPresent() {
+    let ok = false
+
+    if (environment.foto == '') {
+      ok = true
+    }
+    
+    return ok
+
+  }
+
+  adm() {
+    let ok = false
+
+    if(environment.tipo == "adm") {
+      ok = true
+    }
+
+    return ok
+    
+  }
+
 }
