@@ -15,7 +15,7 @@ export class CadastrarComponent implements OnInit {
 
   user: User = new User
   confirmarSenha: string
-  tipoUsuario: string
+  tipoUsuario = "normal"
 
   //Injeção de dependencia
   constructor( 

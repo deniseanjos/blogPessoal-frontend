@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from '../model/Tema';
 import { AlertsService } from '../service/alerts.service';
+import { AuthService } from '../service/auth.service';
 import { TemaService } from '../service/tema.service';
 
 
@@ -19,18 +20,14 @@ export class TemaComponent implements OnInit {
   constructor(
     private router: Router,
     private temaService: TemaService,
-    private alerts: AlertsService
+    private alerts: AlertsService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
 
     if(environment.token == '') {
       this.router.navigate(['/entrar'])
-    }
-
-    if(environment.tipo != 'adm'){
-      this.alerts.showAlertInfo("Acesso somente para administradores.")
-      this.router.navigate(['/inicio'])
     }
 
     this.findAllTemas()
