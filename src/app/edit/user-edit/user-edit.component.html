@@ -12,44 +12,58 @@
 
         <div class="col-md-6">
 
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input [(ngModel)]='user.nome' class="form-control" type="text" name="nome" id="nome"
-                    placeholder="Nome e Sobrenome">
-            </div>
+            <form class="needs-validation" novalidate>
 
-            <div class="form-group">
-                <label for="usuario">Email</label>
-                <input [(ngModel)]='user.usuario' class="form-control" type="email" name="usuario" id="usuario"
-                    placeholder="email@email.com">
-            </div>
+                <div class="form-group">
+                    <label for="nome">Nome *</label>
+                    <input [(ngModel)]='user.nome' (click)="validaNome($event)" class="form-control" type="text"
+                        name="nome" id="nome" placeholder="Digite seu nome" required>
+                    <div class="valid-feedback">Nome preenchido.</div>
+                    <div class="invalid-feedback">Necessário preencher no mínimo 3 caracteres.</div>
 
-            <div class="form-group">
-                <label for="foto">Link da Foto</label>
-                <input [(ngModel)]='user.foto' class="form-control" type="text" name="foto" id="foto"
-                    placeholder="https://i.imgur.com/exemploLinkFoto.png">
-            </div>
+                </div>
 
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <input (input)='confirmeSenha($event)' class="form-control" type="password" name="senha" id="senha"
-                    placeholder="Digite sua senha">
-            </div>
+                <div class="form-group">
+                    <label for="usuario">Email *</label>
+                    <input [(ngModel)]='user.usuario' (click)="validaEmail($event)" class="form-control" type="email"
+                        name="usuario" id="usuario" placeholder="email@email.com" required>
+                    <div class="valid-feedback">E-mail preenchido corretamente.</div>
+                    <div class="invalid-feedback">Por gentileza, verifique o e-mail informado.</div>
+                </div>
 
-            <div class="form-group">
-                <label for="confirmSenha">Confirmar Senha</label>
-                <input [(ngModel)]='user.senha' class="form-control" type="password" name="senha" id="senhaConfirmar"
-                    placeholder="Confirme sua senha">
-            </div>
+                <div class="form-group">
+                    <label for="foto">Link da Foto (Opcional)</label>
+                    <input [(ngModel)]='user.foto' (click)="validaFoto($event)" class="form-control" type="text"
+                        name="foto" id="foto" placeholder="https://i.imgur.com/exemploLinkFoto.png">
+                    <div class="invalid-feedback">Por gentileza, verifique se o link da foto informada está no formato correto ou
+                        deixe este campo em branco.</div>
+                </div>
 
-            <div class="form-group" *ngIf="authService.adm()">
+                <div class="form-group">
+                    <label for="senha">Senha *</label>
+                    <input [(ngModel)]='user.senha' (click)="validaSenha($event)" class="form-control" type="password"
+                        name="senha" id="senha" placeholder="Digite sua senha" required>
+                    <div class="valid-feedback">Senha preenchida corretamente.</div>
+                    <div class="invalid-feedback">A senha deve conter, no mínimo, 5 caracteres.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmSenha">Confirmar Senha *</label>
+                    <input (click)="confirmSenha($event)" class="form-control" type="password" name="senha"
+                        id="senhaConfirmar" placeholder="Confirme sua senha" required>
+                    <div class="valid-feedback">Senhas conferem.</div>
+                    <div class="invalid-feedback">As senhas devem ser iguais.</div>
+                </div>
+
+
+            <!-- <div class="form-group" *ngIf="authService.adm()">
                 <label for="tipo">Tipo de Usuário</label>
                 <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
                     <option disabled selected>Selecione o tipo de usuário</option>
                     <option value="normal">Normal</option>
                     <option value="adm">Administrador</option>
                 </select>
-            </div>
+            </div> -->
 
             <div class="d-flex justify-content-center">
 
@@ -62,6 +76,8 @@
                 </button>
 
             </div>
+
+            </form>
 
         </div>
 
