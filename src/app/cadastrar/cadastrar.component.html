@@ -15,37 +15,44 @@
             <form class="needs-validation" novalidate>
 
                 <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input [(ngModel)]='user.nome' class="form-control" type="text" name="nome" id="nome"
-                        placeholder="Digite seu nome" required>
+                    <label for="nome">Nome *</label>
+                    <input [(ngModel)]='user.nome' (keyup)="validaNome($event)" class="form-control" type="text"
+                        name="nome" id="nome" placeholder="Digite seu nome" required>
                     <div class="valid-feedback">Nome preenchido.</div>
                     <div class="invalid-feedback">Necessário preencher no mínimo 3 caracteres.</div>
 
                 </div>
 
                 <div class="form-group">
-                    <label for="usuario">Email</label>
-                    <input [(ngModel)]='user.usuario' class="form-control" type="email" name="usuario" id="usuario"
-                        placeholder="email@email.com" required>
+                    <label for="usuario">Email *</label>
+                    <input [(ngModel)]='user.usuario' (keyup)="validaEmail($event)" class="form-control" type="email"
+                        name="usuario" id="usuario" placeholder="email@email.com" required>
+                    <div class="valid-feedback">E-mail preenchido corretamente.</div>
                     <div class="invalid-feedback">Por gentileza, verifique o e-mail informado.</div>
                 </div>
 
                 <div class="form-group">
                     <label for="foto">Link da Foto (Opcional)</label>
-                    <input [(ngModel)]='user.foto' class="form-control" type="text" name="foto" id="foto"
-                        placeholder="https://i.imgur.com/exemploLinkFoto.png">
+                    <input [(ngModel)]='user.foto' (keyup)="validaFoto($event)" class="form-control" type="text"
+                        name="foto" id="foto" placeholder="https://i.imgur.com/exemploLinkFoto.png">
+                    <div class="invalid-feedback">Por gentileza, verifique se o link da foto informada está no formato correto ou
+                        deixe este campo em branco.</div>
                 </div>
 
                 <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input (input)='confirmeSenha($event)' class="form-control" type="password" name="senha" id="senha"
-                        placeholder="Digite sua senha" required>
+                    <label for="senha">Senha *</label>
+                    <input [(ngModel)]='user.senha' (keyup)="validaSenha($event)" class="form-control" type="password"
+                        name="senha" id="senha" placeholder="Digite sua senha" required>
+                    <div class="valid-feedback">Senha preenchida corretamente.</div>
+                    <div class="invalid-feedback">A senha deve conter, no mínimo, 5 caracteres.</div>
                 </div>
 
                 <div class="form-group">
-                    <label for="confirmSenha">Confirmar Senha</label>
-                    <input [(ngModel)]='user.senha' class="form-control" type="password" name="senha"
+                    <label for="confirmSenha">Confirmar Senha *</label>
+                    <input (click)="confirmSenha($event)" class="form-control" type="password" name="senha"
                         id="senhaConfirmar" placeholder="Confirme sua senha" required>
+                    <div class="valid-feedback">Senhas conferem.</div>
+                    <div class="invalid-feedback">As senhas devem ser iguais.</div>
                 </div>
 
                 <div class="d-flex justify-content-center">

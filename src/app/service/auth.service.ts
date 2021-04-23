@@ -49,7 +49,7 @@ export class AuthService {
   fotoIsPresent() {
     let ok = false
 
-    if (environment.foto != '') {
+    if (environment.foto != '' && environment.foto != null) {
       ok = true
     }
     
@@ -60,7 +60,7 @@ export class AuthService {
   fotoIsNotPresent() {
     let ok = false
 
-    if (environment.foto == '') {
+    if (environment.foto == null) {
       ok = true
     }
     
